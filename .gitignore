@@ -10,6 +10,7 @@ wp-content/wp-cache-config.php
 
 # Environment
 .env
+.env.hostgator
 
 # OS
 .DS_Store

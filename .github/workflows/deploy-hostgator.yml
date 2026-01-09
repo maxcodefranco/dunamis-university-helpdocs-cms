@@ -1,0 +1,57 @@
+name: Deploy to Hostgator
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - '.gitignore'
+
+jobs:
+  deploy:
+    name: Deploy to Hostgator via SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Deploy to Hostgator
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          TARGET: ${{ secrets.REMOTE_PATH }}
+          EXCLUDE: |
+            /node_modules/
+            /.git/
+            /.github/
+            /docker-compose.yml
+            /.env
+            /.env.example
+            /.dockerignore
+            /docs/
+            /scripts/
+            /.claude/
+          SCRIPT_BEFORE: |
+            echo "🚀 Starting deployment to Hostgator..."
+            echo "Target: $TARGET"
+          SCRIPT_AFTER: |
+            echo "✅ Deployment completed!"
+            echo "📁 Files deployed to: $TARGET"
+            cd $TARGET
+            # Set correct permissions
+            find . -type d -exec chmod 755 {} \;
+            find . -type f -exec chmod 644 {} \;
+            # WordPress specific permissions
+            chmod 755 wp-content
+            chmod -R 755 wp-content/themes
+            chmod -R 755 wp-content/plugins
+            chmod -R 777 wp-content/uploads
+            echo "✅ Permissions updated"

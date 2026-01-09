@@ -39,21 +39,34 @@ docker compose up -d
 
 Acesse: http://localhost:8080
 
-### Deploy em Produção (Railway)
+### Deploy em Produção (Hostgator)
 
-🚀 **Deploy no Railway**: **[docs/DEPLOY-QUICKSTART.md](docs/DEPLOY-QUICKSTART.md)**
+🚀 **Deploy no Hostgator via SSH**: **[docs/DEPLOY-HOSTGATOR.md](docs/DEPLOY-HOSTGATOR.md)**
+
+#### Deploy Automático (GitHub Actions)
+Configurado para deploy automático a cada push na branch `main`.
 
 ```bash
-# Execute o script de deploy
-./scripts/deploy-to-railway.py
+git add .
+git commit -m "feat: nova funcionalidade"
+git push origin main
+# Deploy automático via GitHub Actions! 🎉
 ```
 
-**URL de Produção**: https://university-dunamis-helpdocs-cms-production.up.railway.app
+#### Deploy Manual
+```bash
+# Configure .env.hostgator primeiro
+cp .env.hostgator.example .env.hostgator
+# Edite com suas credenciais
 
-#### Documentação Completa de Deploy
-- [Deploy Rápido](docs/DEPLOY-QUICKSTART.md) - 5 minutos
-- [Configuração Railway](docs/RAILWAY-PROJECT.md) - Detalhes do projeto
-- [Setup de Volumes](docs/VOLUME-SETUP.md) - Troubleshooting
+# Execute o deploy
+./scripts/deploy-hostgator.sh
+```
+
+#### Documentação Completa
+- [Deploy Hostgator](docs/DEPLOY-HOSTGATOR.md) - Guia completo
+- [GitHub Actions](.github/workflows/deploy-hostgator.yml) - Workflow automático
+- [Desenvolvimento Local](docs/QUICKSTART.md) - Docker Compose
 
 ### Ativar o Tema
 

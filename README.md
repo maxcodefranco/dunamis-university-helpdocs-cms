@@ -26,40 +26,36 @@ Sistema de documentação e suporte da Faculdade Dunamis com manuais, tutoriais 
 
 ## Instalação
 
-### 1. Clone o projeto
+### Desenvolvimento Local
+
+Para desenvolvimento local, veja: **[docs/QUICKSTART.md](docs/QUICKSTART.md)**
 
 ```bash
-git clone [URL_DO_REPOSITORIO]
+git clone https://github.com/maxcodefranco/dunamis-university-helpdocs-cms.git
 cd helpdocs-cms
-```
-
-### 2. Configure o ambiente
-
-```bash
-# Copie o arquivo .env.example
 cp .env.example .env
-
-# Edite as variáveis de ambiente conforme necessário
-nano .env
-```
-
-### 3. Inicie o Docker Compose
-
-```bash
 docker compose up -d
 ```
 
-### 4. Acesse o WordPress
+Acesse: http://localhost:8080
 
-Abra o navegador em: http://localhost:8082
+### Deploy em Produção (Railway)
 
-Complete a instalação do WordPress:
-- **Título do site**: HelpDocs - Faculdade Dunamis
-- **Nome de usuário**: admin (ou outro de sua preferência)
-- **Senha**: (senha forte)
-- **Email**: seu email
+🚀 **Deploy no Railway**: **[docs/DEPLOY-QUICKSTART.md](docs/DEPLOY-QUICKSTART.md)**
 
-### 5. Ative o tema
+```bash
+# Execute o script de deploy
+./scripts/deploy-to-railway.py
+```
+
+**URL de Produção**: https://university-dunamis-helpdocs-cms-production.up.railway.app
+
+#### Documentação Completa de Deploy
+- [Deploy Rápido](docs/DEPLOY-QUICKSTART.md) - 5 minutos
+- [Configuração Railway](docs/RAILWAY-PROJECT.md) - Detalhes do projeto
+- [Setup de Volumes](docs/VOLUME-SETUP.md) - Troubleshooting
+
+### Ativar o Tema
 
 1. No WordPress admin, vá em **Aparência > Temas**
 2. Ative o tema **HelpDocs**

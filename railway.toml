@@ -3,31 +3,5 @@ builder = "DOCKERFILE"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "apache2-foreground"
 restartPolicyType = "ON_FAILURE"
-restartPolicyMaxRetries = 10
-healthcheckPath = "/"
-healthcheckTimeout = 100
-
-[[deploy.environmentVariables]]
-name = "WORDPRESS_DB_HOST"
-
-[[deploy.environmentVariables]]
-name = "WORDPRESS_DB_NAME"
-
-[[deploy.environmentVariables]]
-name = "WORDPRESS_DB_USER"
-
-[[deploy.environmentVariables]]
-name = "WORDPRESS_DB_PASSWORD"
-
-[[deploy.environmentVariables]]
-name = "WORDPRESS_TABLE_PREFIX"
-value = "wp_"
-
-[[deploy.environmentVariables]]
-name = "WORDPRESS_DEBUG"
-value = "0"
-
-[[deploy.environmentVariables]]
-name = "WORDPRESS_CONFIG_EXTRA"
+restartPolicyMaxRetries = 5

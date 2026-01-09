@@ -10,6 +10,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip \
     && rm -rf /var/lib/apt/lists/*
 
+# Fix Apache MPM configuration - disable conflicting MPMs
+RUN a2dismod mpm_event mpm_worker || true && \
+    a2enmod mpm_prefork || true
+
 # Configure PHP settings
 RUN { \
     echo 'upload_max_filesize = 64M'; \
@@ -32,10 +36,6 @@ WORKDIR /var/www/html
 
 # Expose port 80
 EXPOSE 80
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost/ || exit 1
 
 # Start Apache
 CMD ["apache2-foreground"]

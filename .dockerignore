@@ -1,0 +1,44 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+CLAUDE.md
+QUICKSTART.md
+requirements.md
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Environment
+.env
+.env.example
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# WordPress cache and temporary files
+wp-content/cache/
+wp-content/uploads/
+wp-content/backup-db/
+wp-content/backups/
+wp-content/upgrade/
+wp-content/blogs.dir/
+
+# Claude
+.claude/

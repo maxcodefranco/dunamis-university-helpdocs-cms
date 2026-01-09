@@ -1,0 +1,17 @@
+/*
+Theme Name: HelpDocs
+Theme URI: https://faculdadedunamis.com.br
+Author: Faculdade Dunamis
+Author URI: https://faculdadedunamis.com.br
+Description: Tema customizado para central de ajuda HelpDocs da Faculdade Dunamis com manuais, tutoriais e documentos.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: helpdocs
+Tags: education, help-center, documentation, tailwind, responsive
+
+Este tema foi desenvolvido para a central de ajuda HelpDocs da Faculdade Dunamis.
+Utiliza Tailwind CSS e layouts diferenciados por categoria.
+*/
+
+/* Estilos base serão carregados via Tailwind CSS */
